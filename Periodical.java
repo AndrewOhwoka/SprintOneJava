@@ -1,8 +1,7 @@
-// Book.java
-public class Book extends LibraryItem {
+// Periodical.java
+public class Periodical extends LibraryItem {
     private boolean isPrinted;
     private boolean isElectronic;
-    private boolean isAudio;
 
     // Getters and setters
 
@@ -20,13 +19,5 @@ public class Book extends LibraryItem {
 
     public void setElectronic(boolean isElectronic) {
         this.isElectronic = isElectronic;
-    }
-
-    public boolean isAudio() {
-        return isAudio;
-    }
-
-    public void setAudio(boolean isAudio) {
-        this.isAudio = isAudio;
     }
 }

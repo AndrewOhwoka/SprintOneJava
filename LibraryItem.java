@@ -8,74 +8,85 @@ public abstract class LibraryItem implements Borrowable {
     protected int numberOfCopies;
     protected String status;
 
-    // getters
+    // Getters and setters
+
     public String getId() {
         return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 
     public String getTitle() {
         return title;
     }
 
-    public String getAuthor() {
-        return author;
-    }
-
-    public String getIsbn() {
-        return isbn;
-    }
-
-    public String getPublisher() {
-        return publisher;
-    }
-
-    public int getNumberOfCopies() {
-        return numberOfCopies;
-    }
-
-    public String getStatus() {
-        return status;
-    }
-
-    // setters
-    public void setId(String id) {
-        this.id = id;
-    }
-
     public void setTitle(String title) {
         this.title = title;
+    }
+
+    public String getAuthor() {
+        return author;
     }
 
     public void setAuthor(String author) {
         this.author = author;
     }
 
+    public String getIsbn() {
+        return isbn;
+    }
+
     public void setIsbn(String isbn) {
         this.isbn = isbn;
+    }
+
+    public String getPublisher() {
+        return publisher;
     }
 
     public void setPublisher(String publisher) {
         this.publisher = publisher;
     }
 
+    public int getNumberOfCopies() {
+        return numberOfCopies;
+    }
+
     public void setNumberOfCopies(int numberOfCopies) {
         this.numberOfCopies = numberOfCopies;
+    }
+
+    public String getStatus() {
+        return status;
     }
 
     public void setStatus(String status) {
         this.status = status;
     }
 
+//     @Override
+//     public void borrowItem(String patron) {
+//     if (Status == Status.AVAILABLE && numberOfCopies > 0) {
+//         numberOfCopies--;
+//         if (numberOfCopies == 0) {
+//             Status = Status.CHECKED_OUT;
+//         }
+//         patron.getBorrowedItems().add(this);
+//         System.out.println("Item borrowed successfully.");
+//     } else {
+//         System.out.println("Item is not available.");
+//     }
+// }
 
-    // Getters and setters
-
-    @Override
-    public void borrowItem(String patron) {
-        // Implement borrowing logic
-    }
-
-    @Override
-    public void returnItem(String patron) {
-        // Implement returning logic
-    }
+//     @Override
+//     public void returnItem(Patron patron) {
+//         numberOfCopies++;
+//         if (status == Status.CHECKED_OUT) {
+//             status = Status.AVAILABLE;
+//         }
+//         patron.getBorrowedItems().remove(this);
+//         System.out.println("Item returned successfully.");
+//     }
 }
