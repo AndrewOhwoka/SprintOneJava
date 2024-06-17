@@ -66,27 +66,27 @@ public abstract class LibraryItem implements Borrowable {
         this.status = status;
     }
 
-//     @Override
-//     public void borrowItem(String patron) {
-//     if (Status == Status.AVAILABLE && numberOfCopies > 0) {
-//         numberOfCopies--;
-//         if (numberOfCopies == 0) {
-//             Status = Status.CHECKED_OUT;
-//         }
-//         patron.getBorrowedItems().add(this);
-//         System.out.println("Item borrowed successfully.");
-//     } else {
-//         System.out.println("Item is not available.");
-//     }
-// }
+    @Override
+    public void borrowItem(String patron) {
+    if (Status == Status.AVAILABLE && numberOfCopies > 0) {
+        numberOfCopies--;
+        if (numberOfCopies == 0) {
+            Status = Status.CHECKED_OUT;
+        }
+        patron.getBorrowedItems().add(this);
+        System.out.println("Item borrowed successfully.");
+    } else {
+        System.out.println("Item is not available.");
+    }
+}
 
-//     @Override
-//     public void returnItem(Patron patron) {
-//         numberOfCopies++;
-//         if (status == Status.CHECKED_OUT) {
-//             status = Status.AVAILABLE;
-//         }
-//         patron.getBorrowedItems().remove(this);
-//         System.out.println("Item returned successfully.");
-//     }
+    @Override
+    public void returnItem(Patron patron) {
+        numberOfCopies++;
+        if (status == Status.CHECKED_OUT) {
+            status = Status.AVAILABLE;
+        }
+        patron.getBorrowedItems().remove(this);
+        System.out.println("Item returned successfully.");
+    }
 }

@@ -8,7 +8,6 @@ public class Author {
     private List<LibraryItem> writtenItems;
 
     // Getters and setters
-
     public String getName() {
         return name;
     }
@@ -33,4 +32,3 @@ public class Author {
         this.writtenItems = writtenItems;
     }
 }
-
