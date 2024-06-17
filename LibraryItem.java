@@ -6,10 +6,9 @@ public abstract class LibraryItem implements Borrowable {
     protected String isbn;
     protected String publisher;
     protected int numberOfCopies;
-    protected String status;
+    protected Status status;
 
     // Getters and setters
-
     public String getId() {
         return id;
     }
@@ -58,27 +57,27 @@ public abstract class LibraryItem implements Borrowable {
         this.numberOfCopies = numberOfCopies;
     }
 
-    public String getStatus() {
+    public Status getStatus() {
         return status;
     }
 
-    public void setStatus(String status) {
+    public void setStatus(Status status) {
         this.status = status;
     }
 
     @Override
-    public void borrowItem(String patron) {
-    if (Status == Status.AVAILABLE && numberOfCopies > 0) {
-        numberOfCopies--;
-        if (numberOfCopies == 0) {
-            Status = Status.CHECKED_OUT;
+    public void borrowItem(Patron patron) {
+        if (status == Status.AVAILABLE && numberOfCopies > 0) {
+            numberOfCopies--;
+            if (numberOfCopies == 0) {
+                status = Status.CHECKED_OUT;
+            }
+            patron.getBorrowedItems().add(this);
+            System.out.println("Item borrowed successfully.");
+        } else {
+            System.out.println("Item is not available.");
         }
-        patron.getBorrowedItems().add(this);
-        System.out.println("Item borrowed successfully.");
-    } else {
-        System.out.println("Item is not available.");
     }
-}
 
     @Override
     public void returnItem(Patron patron) {

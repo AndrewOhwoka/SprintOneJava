@@ -5,15 +5,13 @@ public class Student extends Patron {
     private String studentId;
     private String major;
 
-    public Student(String name, String address, String phoneNumber, List<LibraryItem> borrowedItems, String studentId, String major) 
-    {
+    public Student(String name, String address, String phoneNumber, List<LibraryItem> borrowedItems, String studentId, String major) {
         super(name, address, phoneNumber, borrowedItems);
         this.studentId = studentId;
         this.major = major;
     }
 
     // Getters and setters
-
     public String getStudentId() {
         return studentId;
     }

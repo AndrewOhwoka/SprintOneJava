@@ -4,7 +4,6 @@ public class Periodical extends LibraryItem {
     private boolean isElectronic;
 
     // Getters and setters
-
     public boolean isPrinted() {
         return isPrinted;
     }

@@ -15,7 +15,6 @@ public abstract class Patron {
     }
 
     // Getters and setters
-
     public String getName() {
         return name;
     }
