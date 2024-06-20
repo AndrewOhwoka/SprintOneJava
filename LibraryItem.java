@@ -1,12 +1,12 @@
 // LibraryItem.java
-public abstract class LibraryItem implements Borrowable {
-    protected String id;
-    protected String title;
-    protected String author;
-    protected String isbn;
-    protected String publisher;
-    protected int numberOfCopies;
-    protected Status status;
+public class LibraryItem implements Borrowable {
+    private String id;
+    private String title;
+    private String author;
+    private String isbn;
+    private String publisher;
+    private int numberOfCopies;
+    private Status status;
 
     // Getters and setters
     public String getId() {

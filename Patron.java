@@ -1,11 +1,11 @@
 // Patron.java
 import java.util.List;
 
-public abstract class Patron {
-    protected String name;
-    protected String address;
-    protected String phoneNumber;
-    protected List<LibraryItem> borrowedItems;
+public class Patron {
+    private String name;
+    private String address;
+    private String phoneNumber;
+    private List<LibraryItem> borrowedItems;
 
     public Patron(String name, String address, String phoneNumber, List<LibraryItem> borrowedItems) {
         this.name = name;

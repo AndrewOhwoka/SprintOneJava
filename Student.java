@@ -33,10 +33,10 @@ public class Student extends Patron {
         return "Student{" +
                 "studentId='" + studentId + '\'' +
                 ", major='" + major + '\'' +
-                ", name='" + name + '\'' +
-                ", address='" + address + '\'' +
-                ", phoneNumber='" + phoneNumber + '\'' +
-                ", borrowedItems=" + borrowedItems +
+                ", name='" + this.getName() + '\'' +
+                ", address='" + this.getAddress() + '\'' +
+                ", phoneNumber='" + this.getPhoneNumber() + '\'' +
+                ", borrowedItems=" + this.getBorrowedItems() +
                 '}';
     }
 }

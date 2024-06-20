@@ -33,10 +33,10 @@ public class Employee extends Patron {
         return "Employee{" +
                 "employeeId='" + employeeId + '\'' +
                 ", department='" + department + '\'' +
-                ", name='" + name + '\'' +
-                ", address='" + address + '\'' +
-                ", phoneNumber='" + phoneNumber + '\'' +
-                ", borrowedItems=" + borrowedItems +
+                ", name='" + this.getName() + '\'' +
+                ", address='" + this.getAddress() + '\'' +
+                ", phoneNumber='" + this.getPhoneNumber() + '\'' +
+                ", borrowedItems=" + this.getBorrowedItems() +
                 '}';
     }
 }
