@@ -7,6 +7,14 @@ public class Author {
     private Date dateOfBirth;
     private List<LibraryItem> writtenItems;
 
+    // Constructor
+
+    public Author(String name, Date dateOfBirth, List<LibraryItem> writtenItems) {
+        this.name = name;
+        this.dateOfBirth = dateOfBirth;
+        this.writtenItems = writtenItems;
+    }
+
     // Getters and setters
     public String getName() {
         return name;

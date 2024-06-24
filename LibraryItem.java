@@ -8,6 +8,17 @@ public class LibraryItem implements Borrowable {
     private int numberOfCopies;
     private Status status;
 
+    //constructor
+    public LibraryItem(String id, String title, String author, String isbn, String publisher, int numberOfCopies, Status status) {
+        this.id = id;
+        this.title = title;
+        this.author = author;
+        this.isbn = isbn;
+        this.publisher = publisher;
+        this.numberOfCopies = numberOfCopies;
+        this.status = status;
+    }
+
     // Getters and setters
     public String getId() {
         return id;
@@ -87,5 +98,18 @@ public class LibraryItem implements Borrowable {
         }
         patron.getBorrowedItems().remove(this);
         System.out.println("Item returned successfully.");
+    }
+
+    @Override
+    public String toString() {
+        return "LibraryItem{" +
+                "id='" + id + '\'' +
+                ", title='" + title + '\'' +
+                ", author='" + author + '\'' +
+                ", isbn='" + isbn + '\'' +
+                ", publisher='" + publisher + '\'' +
+                ", numberOfCopies=" + numberOfCopies +
+                ", status=" + status +
+                '}';
     }
 }

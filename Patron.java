@@ -7,6 +7,7 @@ public class Patron {
     private String phoneNumber;
     private List<LibraryItem> borrowedItems;
 
+    // Constructor
     public Patron(String name, String address, String phoneNumber, List<LibraryItem> borrowedItems) {
         this.name = name;
         this.address = address;

@@ -21,18 +21,25 @@ public class LibraryMenu {
 
             switch (choice) {
                 case 1:
-                    System.out.println("Adding a new library item...");
-                    LibraryItem newItem = new Book(); // Example, could be a Periodical or other item
-                    newItem.setId("1"); // Set other properties similarly
-                    library.addLibraryItem(newItem);
+                    System.out.println("Enter Library Item ID: ");
+                    String libraryItemId = scanner.next();
+                    System.out.println("Enter Library Item Name: ");
+                    String libraryItemName = scanner.next();
+                
+                
+                
+                    // System.out.println("Adding a new library item...");
+                    // LibraryItem newItem = new Book(); // Example, could be a Periodical or other item
+                    // newItem.setId("1"); // Set other properties similarly
+                    // library.addLibraryItem(newItem);
                     break;
                 case 2:
                     System.out.println("Editing an existing library item...");
                     System.out.print("Enter the ID of the item to edit: ");
-                    String editId = scanner.next();
-                    LibraryItem editItem = new Book(); // Example, could be a Periodical or other item
-                    editItem.setId(editId); // Set other properties similarly
-                    library.editLibraryItem(editId, editItem);
+                    // String editId = scanner.next();
+                    // // LibraryItem editItem = new Book(); // Example, could be a Periodical or other item
+                    // editItem.setId(editId); // Set other properties similarly
+                    // library.editLibraryItem(editId, editItem);
                     break;
                 case 3:
                     System.out.println("Deleting a library item...");
