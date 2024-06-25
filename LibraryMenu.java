@@ -56,13 +56,6 @@ public class LibraryMenu {
                     String editItemPublisher = scanner.next();
                     System.out.println("Edit Library Item Number of Copies: ");
                     int editItemNumberOfCopies = scanner.nextInt();
-
-
-
-                    // String editId = scanner.next();
-                    // // LibraryItem editItem = new Book(); // Example, could be a Periodical or other item
-                    // editItem.setId(editId); // Set other properties similarly
-                    // library.editLibraryItem(editId, editItem);
                     break;
                 case 3:
                     System.out.println("Deleting a library item...");
@@ -107,23 +100,38 @@ public class LibraryMenu {
                     String deleteAuthor = scanner.next();
                     break;
                 case 9:
-                    System.out.println("Adding a patron...");
+
+                    // patron
+                    System.out.println("Enter Patron Name: ");
+                    String patronName = scanner.next();
+                    System.out.println("Enter Patron address: ");
+                    String patronAddress = scanner.next();
+                    System.out.println("Enter Patron phone number: ");
+                    String patronPhoneNumber = scanner.next();
+                    System.out.println("Enter Patron list of items: ");
+                    String patronListOfitems = scanner.next();
                     break;
                 case 10:
-                    System.out.println("Editing a patron...");
-                    break;
+                    System.out.println("Edit Patron Name: ");
+                    String editPatronName = scanner.next();
+                    System.out.println("Edit Patron address: ");
+                    String editPatronAddress = scanner.next();
+                    System.out.println("Edit Patron phone number: ");
+                    String editPatronPhoneNumber = scanner.next();
+                    System.out.println("Edit Patron list of items: ");
+                    String editPatronListOfitems = scanner.next();
+                break;
                 case 11:
-                    System.out.println("Deleting a patron...");
+                    System.out.print("Delete Patron: ");
+                    String deletePatron = scanner.next();
                     break;
-
-
                 case 12:
                     System.out.println("Exiting the system. Goodbye!");
                     break;
                 default:
-                    System.out.println("Invalid choice. Please enter a number between 1 and 6.");
+                    System.out.println("Invalid choice. Please enter a number between 1 and 12.");
             }
-        } while (choice != 6);
+        } while (choice != 12);
 
         scanner.close();
     }
