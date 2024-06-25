@@ -15,27 +15,50 @@ public class LibraryMenu {
             System.out.println("3. Delete Library Item");
             System.out.println("4. Borrow Library Item");
             System.out.println("5. Return Library Item");
-            System.out.println("6. Exit");
-            System.out.print("Enter your choice (1-6): ");
+            //add new authors, edit existing authors, and delete authors from the library. 
+            System.out.println("6. Add Author");
+            System.out.println("7. Edit Author");
+            System.out.println("8. Delete Author");
+            //add new patrons, edit existing patrons, and delete patrons from the library.
+            System.out.println("9. Add Patron");
+            System.out.println("10. Edit Patron");
+            System.out.println("11. Delete Patron");
+
+            System.out.println("12. Exit");
+            System.out.print("Enter your choice (1-12): ");
             choice = scanner.nextInt();
 
             switch (choice) {
                 case 1:
                     System.out.println("Enter Library Item ID: ");
                     String libraryItemId = scanner.next();
-                    System.out.println("Enter Library Item Name: ");
-                    String libraryItemName = scanner.next();
-                
-                
-                
-                    // System.out.println("Adding a new library item...");
-                    // LibraryItem newItem = new Book(); // Example, could be a Periodical or other item
-                    // newItem.setId("1"); // Set other properties similarly
-                    // library.addLibraryItem(newItem);
+                    System.out.println("Enter Library Item Title: ");
+                    String libraryItemTitle = scanner.next();
+                    System.out.println("Enter Library Item Author: ");
+                    String libraryItemAuthor = scanner.next();
+                    System.out.println("Enter Library Item ISBN: ");
+                    String libraryItemIsbn = scanner.next();
+                    System.out.println("Enter Library Item Publisher: ");
+                    String libraryItemPublisher = scanner.next();
+                    System.out.println("Enter Library Item Number of Copies: ");
+                    int libraryItemNumberOfCopies = scanner.nextInt();
                     break;
                 case 2:
-                    System.out.println("Editing an existing library item...");
-                    System.out.print("Enter the ID of the item to edit: ");
+                    System.out.println("Edit Library Item ID: ");
+                    String editItemId = scanner.next();
+                    System.out.println("Edit Library Item Title: ");
+                    String editItemTitle = scanner.next();
+                    System.out.println("Edit Library Item Author: ");
+                    String editItemAuthor = scanner.next();
+                    System.out.println("Edit Library Item ISBN: ");
+                    String editItemIsbn = scanner.next();
+                    System.out.println("Edit Library Item Publisher: ");
+                    String editItemPublisher = scanner.next();
+                    System.out.println("Edit Library Item Number of Copies: ");
+                    int editItemNumberOfCopies = scanner.nextInt();
+
+
+
                     // String editId = scanner.next();
                     // // LibraryItem editItem = new Book(); // Example, could be a Periodical or other item
                     // editItem.setId(editId); // Set other properties similarly
@@ -62,6 +85,39 @@ public class LibraryMenu {
                     library.returnLibraryItem(returnTitle, returnPatron);
                     break;
                 case 6:
+                    
+                    // author
+                    System.out.println("Enter Author Name: ");
+                    String authorName = scanner.next();
+                    System.out.println("Enter date of birth: ");
+                    String authorDateOfBirth = scanner.next();
+                    System.out.println("Enter Author list of items: ");
+                    String authorListOfitems = scanner.next();
+                    break;
+                case 7:
+                    System.out.println("Edit Author Name: ");
+                    String editAuthorName = scanner.next();
+                    System.out.println("Editg date of birth: ");
+                    String editAuthorDateOfBirth = scanner.next();
+                    System.out.println("Edit Author list of items: ");
+                    String edithAuthorListOfitems = scanner.next();
+                    break;
+                case 8:
+                    System.out.print("Delete Author: ");
+                    String deleteAuthor = scanner.next();
+                    break;
+                case 9:
+                    System.out.println("Adding a patron...");
+                    break;
+                case 10:
+                    System.out.println("Editing a patron...");
+                    break;
+                case 11:
+                    System.out.println("Deleting a patron...");
+                    break;
+
+
+                case 12:
                     System.out.println("Exiting the system. Goodbye!");
                     break;
                 default:
