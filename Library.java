@@ -59,9 +59,41 @@ public class Library {
     public void addAuthor(Author author) {
         authors.add(author);
     }
+   // Method to edit an author
+    public void editAuthor(String Name, Author newAuthor) {
+        for (Author author : authors) {
+            if (author.getName().equals(Name)) {
+                author.setName(newAuthor.getName());
+                author.setDateOfBirth(newAuthor.getDateOfBirth());
+                author.setWrittenItems(newAuthor.getWrittenItems());
+                break;
+            }
+        }
+    }
+    // Method to delete an author
+    public void deleteAuthor(String Name) {
+        authors.removeIf(author -> author.getName().equals(Name));
+    }   
 
+    
     // Methods to add, edit, delete patrons
     public void addPatron(Patron patron) {
         patrons.add(patron);
+    }
+    // Method to edit a patron
+    public void editPatron(String name, Patron newPatron) {
+        for (Patron patron : patrons) {
+            if (patron.getName().equals(name)) {
+                patron.setName(newPatron.getName());
+                patron.setAddress(newPatron.getAddress());
+                patron.setPhoneNumber(newPatron.getPhoneNumber());
+                patron.setBorrowedItems(newPatron.getBorrowedItems());
+                break;
+            }
+        }
+    }
+    // Method to delete a patron
+    public void deletePatron(String name) {
+        patrons.removeIf(patron -> patron.getName().equals(name));
     }
 }

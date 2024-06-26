@@ -66,15 +66,35 @@ public class LibraryMenu {
                 case 4:
                     System.out.println("Borrowing a library item...");
                     System.out.print("Enter the title of the item to borrow: ");
-                    String borrowTitle = scanner.next();
-                    Patron patron = new Employee("Jane Smith", "456 Elm St", "555-1234", new ArrayList<>(), "E789012", "HR"); // Example, could be a Student or other patron
+                    String borrowTitle = scanner.nextLine();
+                    System.out.print("Enter your name: ");
+                    String name = scanner.nextLine();
+                    System.out.print("Enter your address: ");
+                    String address = scanner.nextLine();
+                    System.out.print("Enter your phone number: ");
+                    String phoneNumber = scanner.nextLine();
+                    System.out.print("Enter your employee ID: ");
+                    String employeeId = scanner.nextLine();
+                    System.out.print("Enter your department: ");
+                    String department = scanner.nextLine();
+                    Patron patron = new Employee(name, address, phoneNumber, new ArrayList<>(), employeeId, department);
                     library.borrowLibraryItem(borrowTitle, patron);
                     break;
                 case 5:
                     System.out.println("Returning a library item...");
                     System.out.print("Enter the title of the item to return: ");
-                    String returnTitle = scanner.next();
-                    Patron returnPatron = new Employee("Jane Smith", "456 Elm St", "555-1234", new ArrayList<>(), "E789012", "HR"); // Example, could be a Student or other patron
+                    String returnTitle = scanner.nextLine();
+                    System.out.print("Enter your name: ");
+                    String nameReturn = scanner.nextLine();
+                    System.out.print("Enter your address: ");
+                    String addressReturn = scanner.nextLine();
+                    System.out.print("Enter your phone number: ");
+                    String phoneNumberReturn = scanner.nextLine();
+                    System.out.print("Enter your employee ID: ");
+                    String employeeIdReturn = scanner.nextLine();
+                    System.out.print("Enter your department: ");
+                    String departmentReturn = scanner.nextLine();
+                    Patron returnPatron = new Employee(nameReturn, addressReturn, phoneNumberReturn, new ArrayList<>(), employeeIdReturn, departmentReturn);
                     library.returnLibraryItem(returnTitle, returnPatron);
                     break;
                 case 6:
