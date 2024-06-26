@@ -47,24 +47,71 @@ public class LibraryMenu {
                     library.printitems();
                     break;
                 case 2:
-                    System.out.println("Edit Library Item ID: ");
-                    String editItemId = scanner.next();
-                    System.out.println("Edit Library Item Title: ");
-                    String editItemTitle = scanner.next();
-                    System.out.println("Edit Library Item Author: ");
-                    String editItemAuthor = scanner.next();
-                    System.out.println("Edit Library Item ISBN: ");
-                    String editItemIsbn = scanner.next();
-                    System.out.println("Edit Library Item Publisher: ");
-                    String editItemPublisher = scanner.next();
-                    System.out.println("Edit Library Item Number of Copies: ");
-                    int editItemNumberOfCopies = scanner.nextInt();
+
+                System.out.println("Enter the ID of the library item to edit: ");
+                String itemId = scanner.next();
+                LibraryItem itemToEdit = library.getLibraryItemById(itemId);
+                if (itemToEdit != null) {
+                    System.out.println("Enter new title: ");
+                    String newTitle = scanner.next();
+                    itemToEdit.setTitle(newTitle);
+                
+                    System.out.println("Enter new author: ");
+                    String newAuthor = scanner.next();
+                    itemToEdit.setAuthor(newAuthor);
+                
+                    System.out.println("Enter new ISBN: ");
+                    String newIsbn = scanner.next();
+                    itemToEdit.setIsbn(newIsbn);
+                
+                    System.out.println("Enter new publisher: ");
+                    String newPublisher = scanner.next();
+                    itemToEdit.setPublisher(newPublisher);
+                
+                    System.out.println("Enter new number of copies: ");
+                    int newNumberOfCopies = scanner.nextInt();
+                    itemToEdit.setNumberOfCopies(newNumberOfCopies);
+                
+                    System.out.println("Library item edited successfully.");
+                    library.addLibraryItem(itemToEdit); // Assuming you have an update method
+                    library.printitems();
+                } else {
+                    System.out.println("No library item found with the provided ID.");
+                }
+                    // System.out.println("Edit Library Item ID: ");
+                    // String editItemId = scanner.next();
+                    // System.out.println("Edit Library Item Title: ");
+                    // String editItemTitle = scanner.next();
+                    // System.out.println("Edit Library Item Author: ");
+                    // String editItemAuthor = scanner.next();
+                    // System.out.println("Edit Library Item ISBN: ");
+                    // String editItemIsbn = scanner.next();
+                    // System.out.println("Edit Library Item Publisher: ");
+                    // String editItemPublisher = scanner.next();
+                    // System.out.println("Edit Library Item Number of Copies: ");
+                    // int editItemNumberOfCopies = scanner.nextInt();
                     break;
                 case 3:
+                    // Delete a library item
                     System.out.println("Deleting a library item...");
                     System.out.print("Enter the ID of the item to delete: ");
                     String deleteId = scanner.next();
-                    library.deleteLibraryItem(deleteId);
+
+                    boolean isDeleted = library.deleteLibraryItem(deleteId);
+
+                    if (isDeleted) {
+                     System.out.println("Library item deleted successfully.");
+                    library.printitems();
+                    } else {
+                     System.out.println("No library item found with the provided ID.");
+                    } 
+
+
+
+                    // System.out.println("Deleting a library item...");
+                    // System.out.print("Enter the ID of the item to delete: ");
+                    // String deleteId = scanner.next();
+                    // library.deleteLibraryItem(deleteId);
                     break;
                 case 4:
                     System.out.println("Borrowing a library item...");
@@ -133,7 +180,9 @@ public class LibraryMenu {
                     break;
                 case 6:
                     
+
                     // author
+            
                     System.out.println("Enter Author Name: ");
                     String authorName = scanner.next();
                     System.out.println("Enter date of birth: ");

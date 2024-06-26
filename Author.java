@@ -5,14 +5,14 @@ import java.util.List;
 public class Author {
     private String name;
     private Date dateOfBirth;
-    private List<LibraryItem> writtenItems;
+    private List <LibraryItem>ywrittenItems;
 
     // Constructor
 
-    public Author(String name, Date dateOfBirth, List<LibraryItem> writtenItems) {
+    public Author(String name, Date authorDateOfBirth, List writtenItems) {
         this.name = name;
-        this.dateOfBirth = dateOfBirth;
-        this.writtenItems = writtenItems;
+        this.dateOfBirth = authorDateOfBirth;
+        this.writtenItems = authorListOfitems;
     }
 
     // Getters and setters
@@ -24,19 +24,23 @@ public class Author {
         this.name = name;
     }
 
-    public Date getDateOfBirth() {
+    public String getDateOfBirth() {
         return dateOfBirth;
     }
 
-    public void setDateOfBirth(Date dateOfBirth) {
+    public void setDateOfBirth(String dateOfBirth) {
         this.dateOfBirth = dateOfBirth;
     }
 
-    public List<LibraryItem> getWrittenItems() {
+    public String getWrittenItems() {
         return writtenItems;
     }
 
-    public void setWrittenItems(List<LibraryItem> writtenItems) {
+    public void setWrittenItems(String writtenItems) {
         this.writtenItems = writtenItems;
+    }
+
+    public String getListOfItems() {
+        return this.writtenItems.toString();
     }
 }

@@ -33,8 +33,8 @@ public class Library {
         }
     }
 
-    public void deleteLibraryItem(String id) {
-        libraryItems.removeIf(item -> item.getId().equals(id));
+    public boolean deleteLibraryItem(String id) {
+        return libraryItems.removeIf(item -> item.getId().equals(id));
     }
 
     public void borrowLibraryItem(String title, Patron patron) {
@@ -102,4 +102,13 @@ public class Library {
             System.out.println(item);
         }
     }
+// METHOD TO GET LIBRARY ITEM BY ID AND EDIT
+    public LibraryItem getLibraryItemById(String itemId) {
+        for (LibraryItem item : libraryItems) { 
+            if (item.getId().equals(itemId)) {
+                return item;
+            }
+}
+        return null;
+    }    
 }
