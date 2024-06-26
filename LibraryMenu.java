@@ -42,6 +42,9 @@ public class LibraryMenu {
                     String libraryItemPublisher = scanner.next();
                     System.out.println("Enter Library Item Number of Copies: ");
                     int libraryItemNumberOfCopies = scanner.nextInt();
+                    LibraryItem libraryItem = new LibraryItem(libraryItemId,libraryItemTitle,libraryItemAuthor,libraryItemIsbn,libraryItemPublisher,libraryItemNumberOfCopies,Status.AVAILABLE);
+                    library.addLibraryItem(libraryItem);
+                    library.printitems();
                     break;
                 case 2:
                     System.out.println("Edit Library Item ID: ");
@@ -81,6 +84,7 @@ public class LibraryMenu {
                     library.borrowLibraryItem(borrowTitle, patron);
                     break;
                 case 5:
+                    // Return a library item
                     System.out.println("Returning a library item...");
                     System.out.print("Enter the title of the item to return: ");
                     String returnTitle = scanner.nextLine();
@@ -90,12 +94,42 @@ public class LibraryMenu {
                     String addressReturn = scanner.nextLine();
                     System.out.print("Enter your phone number: ");
                     String phoneNumberReturn = scanner.nextLine();
-                    System.out.print("Enter your employee ID: ");
-                    String employeeIdReturn = scanner.nextLine();
-                    System.out.print("Enter your department: ");
-                    String departmentReturn = scanner.nextLine();
-                    Patron returnPatron = new Employee(nameReturn, addressReturn, phoneNumberReturn, new ArrayList<>(), employeeIdReturn, departmentReturn);
-                    library.returnLibraryItem(returnTitle, returnPatron);
+                    System.out.print("Are you an Employee or a Student? (E/S): ");
+                    String patronType = scanner.nextLine();
+                    Patron returnPatron = null;
+                    if (patronType.equalsIgnoreCase("E")) {
+                        System.out.print("Enter your employee ID: ");
+                        String employeeIdReturn = scanner.nextLine();
+                        System.out.print("Enter your department: ");
+                        String departmentReturn = scanner.nextLine();
+                        returnPatron = new Employee(nameReturn, addressReturn, phoneNumberReturn, new ArrayList<>(), employeeIdReturn, departmentReturn);
+                    } else if (patronType.equalsIgnoreCase("S")) {
+                        System.out.print("Enter your student ID: ");
+                        String studentId = scanner.nextLine();
+                        System.out.print("Enter your course: ");
+                        String course = scanner.nextLine();
+                        returnPatron = new Student(nameReturn, addressReturn, phoneNumberReturn, new ArrayList<>(), studentId, course);
+                    }
+                    if (returnPatron != null) {
+                        library.returnLibraryItem(returnTitle, returnPatron);
+                    } else {
+                        System.out.println("Invalid patron type. Please enter E for Employee or S for Student.");
+                    }
+                    // System.out.println("Returning a library item...");
+                    // System.out.print("Enter the title of the item to return: ");
+                    // String returnTitle = scanner.nextLine();
+                    // System.out.print("Enter your name: ");
+                    // String nameReturn = scanner.nextLine();
+                    // System.out.print("Enter your address: ");
+                    // String addressReturn = scanner.nextLine();
+                    // System.out.print("Enter your phone number: ");
+                    // String phoneNumberReturn = scanner.nextLine();
+                    // System.out.print("Enter your employee ID: ");
+                    // String employeeIdReturn = scanner.nextLine();
+                    // System.out.print("Enter your department: ");
+                    // String departmentReturn = scanner.nextLine();
+                    // Patron returnPatron = new Employee(nameReturn, addressReturn, phoneNumberReturn, new ArrayList<>(), employeeIdReturn, department);
+                    // library.returnLibraryItem(returnTitle, returnPatron);
                     break;
                 case 6:
                     

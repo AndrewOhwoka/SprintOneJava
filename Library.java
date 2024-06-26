@@ -96,4 +96,10 @@ public class Library {
     public void deletePatron(String name) {
         patrons.removeIf(patron -> patron.getName().equals(name));
     }
+
+    public void printitems() {
+        for (LibraryItem item : libraryItems) {
+            System.out.println(item);
+        }
+    }
 }
