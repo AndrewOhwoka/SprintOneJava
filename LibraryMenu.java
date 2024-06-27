@@ -25,6 +25,8 @@ public class LibraryMenu {
             System.out.println("11. Delete Patron");
 
             System.out.println("12. Exit");
+            System.out.println("13. Print Everything!");
+
             System.out.print("Enter your choice (1-12): ");
             choice = scanner.nextInt();
 
@@ -44,6 +46,10 @@ public class LibraryMenu {
                     int libraryItemNumberOfCopies = scanner.nextInt();
                     LibraryItem libraryItem = new LibraryItem(libraryItemId,libraryItemTitle,libraryItemAuthor,libraryItemIsbn,libraryItemPublisher,libraryItemNumberOfCopies,Status.AVAILABLE);
                     library.addLibraryItem(libraryItem);
+
+                    // Take Author Name and do a check then add the item to their list of items written.
+                    library.checkAuthorList(libraryItemAuthor,libraryItem);
+
                     library.printitems();
                     break;
                 case 2:
@@ -73,23 +79,10 @@ public class LibraryMenu {
                     itemToEdit.setNumberOfCopies(newNumberOfCopies);
                 
                     System.out.println("Library item edited successfully.");
-                    library.addLibraryItem(itemToEdit); // Assuming you have an update method
                     library.printitems();
                 } else {
                     System.out.println("No library item found with the provided ID.");
                 }
-                    // System.out.println("Edit Library Item ID: ");
-                    // String editItemId = scanner.next();
-                    // System.out.println("Edit Library Item Title: ");
-                    // String editItemTitle = scanner.next();
-                    // System.out.println("Edit Library Item Author: ");
-                    // String editItemAuthor = scanner.next();
-                    // System.out.println("Edit Library Item ISBN: ");
-                    // String editItemIsbn = scanner.next();
-                    // System.out.println("Edit Library Item Publisher: ");
-                    // String editItemPublisher = scanner.next();
-                    // System.out.println("Edit Library Item Number of Copies: ");
-                    // int editItemNumberOfCopies = scanner.nextInt();
                     break;
                 case 3:
                     // Delete a library item
@@ -105,56 +98,49 @@ public class LibraryMenu {
                     } else {
                      System.out.println("No library item found with the provided ID.");
                     } 
-
-
-
-                    // System.out.println("Deleting a library item...");
-                    // System.out.print("Enter the ID of the item to delete: ");
-                    // String deleteId = scanner.next();
-                    // library.deleteLibraryItem(deleteId);
                     break;
                 case 4:
                     System.out.println("Borrowing a library item...");
-                    System.out.print("Enter the title of the item to borrow: ");
-                    String borrowTitle = scanner.nextLine();
-                    System.out.print("Enter your name: ");
-                    String name = scanner.nextLine();
-                    System.out.print("Enter your address: ");
-                    String address = scanner.nextLine();
-                    System.out.print("Enter your phone number: ");
-                    String phoneNumber = scanner.nextLine();
-                    System.out.print("Enter your employee ID: ");
-                    String employeeId = scanner.nextLine();
-                    System.out.print("Enter your department: ");
-                    String department = scanner.nextLine();
+                    System.out.println("Enter the title of the item to borrow: ");
+                    String borrowTitle = scanner.next();
+                    System.out.println("Enter your name: ");
+                    String name = scanner.next();
+                    System.out.println("Enter your address: ");
+                    String address = scanner.next();
+                    System.out.println("Enter your phone number: ");
+                    String phoneNumber = scanner.next();
+                    System.out.println("Enter your employee ID: ");
+                    String employeeId = scanner.next();
+                    System.out.println("Enter your department: ");
+                    String department = scanner.next();
                     Patron patron = new Employee(name, address, phoneNumber, new ArrayList<>(), employeeId, department);
                     library.borrowLibraryItem(borrowTitle, patron);
                     break;
                 case 5:
                     // Return a library item
                     System.out.println("Returning a library item...");
-                    System.out.print("Enter the title of the item to return: ");
-                    String returnTitle = scanner.nextLine();
-                    System.out.print("Enter your name: ");
-                    String nameReturn = scanner.nextLine();
-                    System.out.print("Enter your address: ");
-                    String addressReturn = scanner.nextLine();
-                    System.out.print("Enter your phone number: ");
-                    String phoneNumberReturn = scanner.nextLine();
-                    System.out.print("Are you an Employee or a Student? (E/S): ");
-                    String patronType = scanner.nextLine();
+                    System.out.println("Enter the title of the item to return: ");
+                    String returnTitle = scanner.next();
+                    System.out.println("Enter your name: ");
+                    String nameReturn = scanner.next();
+                    System.out.println("Enter your address: ");
+                    String addressReturn = scanner.next();
+                    System.out.println("Enter your phone number: ");
+                    String phoneNumberReturn = scanner.next();
+                    System.out.println("Are you an Employee or a Student? (E/S): ");
+                    String patronType = scanner.next();
                     Patron returnPatron = null;
                     if (patronType.equalsIgnoreCase("E")) {
-                        System.out.print("Enter your employee ID: ");
-                        String employeeIdReturn = scanner.nextLine();
-                        System.out.print("Enter your department: ");
-                        String departmentReturn = scanner.nextLine();
+                        System.out.println("Enter your employee ID: ");
+                        String employeeIdReturn = scanner.next();
+                        System.out.println("Enter your department: ");
+                        String departmentReturn = scanner.next();
                         returnPatron = new Employee(nameReturn, addressReturn, phoneNumberReturn, new ArrayList<>(), employeeIdReturn, departmentReturn);
                     } else if (patronType.equalsIgnoreCase("S")) {
-                        System.out.print("Enter your student ID: ");
-                        String studentId = scanner.nextLine();
-                        System.out.print("Enter your course: ");
-                        String course = scanner.nextLine();
+                        System.out.println("Enter your student ID: ");
+                        String studentId = scanner.next();
+                        System.out.println("Enter your course: ");
+                        String course = scanner.next();
                         returnPatron = new Student(nameReturn, addressReturn, phoneNumberReturn, new ArrayList<>(), studentId, course);
                     }
                     if (returnPatron != null) {
@@ -162,35 +148,18 @@ public class LibraryMenu {
                     } else {
                         System.out.println("Invalid patron type. Please enter E for Employee or S for Student.");
                     }
-                    // System.out.println("Returning a library item...");
-                    // System.out.print("Enter the title of the item to return: ");
-                    // String returnTitle = scanner.nextLine();
-                    // System.out.print("Enter your name: ");
-                    // String nameReturn = scanner.nextLine();
-                    // System.out.print("Enter your address: ");
-                    // String addressReturn = scanner.nextLine();
-                    // System.out.print("Enter your phone number: ");
-                    // String phoneNumberReturn = scanner.nextLine();
-                    // System.out.print("Enter your employee ID: ");
-                    // String employeeIdReturn = scanner.nextLine();
-                    // System.out.print("Enter your department: ");
-                    // String departmentReturn = scanner.nextLine();
-                    // Patron returnPatron = new Employee(nameReturn, addressReturn, phoneNumberReturn, new ArrayList<>(), employeeIdReturn, department);
-                    // library.returnLibraryItem(returnTitle, returnPatron);
                     break;
                 case 6:
-                    
-
-                    // author
-            
+                    // Add an author
                     System.out.println("Enter Author Name: ");
                     String authorName = scanner.next();
                     System.out.println("Enter date of birth: ");
                     String authorDateOfBirth = scanner.next();
-                    System.out.println("Enter Author list of items: ");
-                    String authorListOfitems = scanner.next();
+                    Author author = new Author(authorName,authorDateOfBirth);
+                    library.addAuthor(author);
                     break;
                 case 7:
+                    // Edit an author
                     System.out.println("Edit Author Name: ");
                     String editAuthorName = scanner.next();
                     System.out.println("Editg date of birth: ");
@@ -199,12 +168,12 @@ public class LibraryMenu {
                     String edithAuthorListOfitems = scanner.next();
                     break;
                 case 8:
+                    // Delete an author
                     System.out.print("Delete Author: ");
                     String deleteAuthor = scanner.next();
                     break;
                 case 9:
-
-                    // patron
+                    // Add a patron
                     System.out.println("Enter Patron Name: ");
                     String patronName = scanner.next();
                     System.out.println("Enter Patron address: ");
@@ -213,8 +182,12 @@ public class LibraryMenu {
                     String patronPhoneNumber = scanner.next();
                     System.out.println("Enter Patron list of items: ");
                     String patronListOfitems = scanner.next();
+                    Patron patron1 = new Patron(patronName,patronAddress,patronPhoneNumber);
+                    library.addPatron(patron1);
+                    library.printPatrons();
                     break;
                 case 10:
+                    // Edit a patron
                     System.out.println("Edit Patron Name: ");
                     String editPatronName = scanner.next();
                     System.out.println("Edit Patron address: ");
@@ -223,18 +196,28 @@ public class LibraryMenu {
                     String editPatronPhoneNumber = scanner.next();
                     System.out.println("Edit Patron list of items: ");
                     String editPatronListOfitems = scanner.next();
+
                 break;
                 case 11:
+                    // Delete a patron
                     System.out.print("Delete Patron: ");
                     String deletePatron = scanner.next();
                     break;
                 case 12:
+                    // Exit the system
                     System.out.println("Exiting the system. Goodbye!");
                     break;
+                case 13:
+                    library.printAuthors();
+                    library.printitems();
+                    library.printPatrons();
+
+                    break;
+
                 default:
-                    System.out.println("Invalid choice. Please enter a number between 1 and 12.");
+                    System.out.println("Invalid choice. Please enter a number between 1 and 13.");
             }
-        } while (choice != 12);
+        } while (choice != 13);
 
         scanner.close();
     }

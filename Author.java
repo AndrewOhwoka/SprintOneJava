@@ -1,18 +1,20 @@
 // Author.java
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
 public class Author {
     private String name;
-    private Date dateOfBirth;
+    private String dateOfBirth;
     private List<LibraryItem> writtenItems;
 
     // Constructor
 
-    public Author(String name, Date dateOfBirth, List<LibraryItem> writtenItems) {
+    public Author(String name, String dateOfBirth) {
         this.name = name;
         this.dateOfBirth = dateOfBirth;
-        this.writtenItems = writtenItems;
+        writtenItems = new ArrayList<LibraryItem>();
+
     }
 
     // Getters and setters
@@ -24,11 +26,11 @@ public class Author {
         this.name = name;
     }
 
-    public Date getDateOfBirth() {
+    public String getDateOfBirth() {
         return dateOfBirth;
     }
 
-    public void setDateOfBirth(Date dateOfBirth) {
+    public void setDateOfBirth(String dateOfBirth) {
         this.dateOfBirth = dateOfBirth;
     }
 
@@ -38,5 +40,9 @@ public class Author {
 
     public void setWrittenItems(List<LibraryItem> writtenItems) {
         this.writtenItems = writtenItems;
+    }
+
+    public void addToWrittenItems(LibraryItem libraryItem) {
+        writtenItems.add(libraryItem);
     }
 }

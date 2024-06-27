@@ -15,6 +15,12 @@ public class Patron {
         this.borrowedItems = borrowedItems;
     }
 
+    public Patron(String name, String address, String phoneNumber) {
+        this.name = name;
+        this.address = address;
+        this.phoneNumber = phoneNumber;
+    }
+
     // Getters and setters
     public String getName() {
         return name;
@@ -46,5 +52,14 @@ public class Patron {
 
     public void setBorrowedItems(List<LibraryItem> borrowedItems) {
         this.borrowedItems = borrowedItems;
+    }
+
+    @Override
+    public String toString() {
+        return "Patron{" +
+                "name='" + name + '\'' +
+                ", address='" + address + '\'' +
+                ", phoneNumber='" + phoneNumber + '\'' +
+                '}';
     }
 }

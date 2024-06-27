@@ -98,9 +98,41 @@ public class Library {
     }
 
     public void printitems() {
+        if(this.libraryItems == null){
+            System.out.println("Library is empty");
+        }
         for (LibraryItem item : libraryItems) {
             System.out.println(item);
         }
+    }
+
+    public void printPatrons() {
+        if(this.patrons == null){
+            System.out.println("Library is empty");
+        }
+        System.out.println("List Of All Patrons: ");
+        for (Patron patron : patrons) {
+            System.out.println("Patron Name: " + patron.getName());
+            System.out.println("Patron Address: " + patron.getAddress());
+            System.out.println("Patron Phone Number: " + patron.getPhoneNumber());
+            System.out.println("----------------");
+        }
+
+    }
+
+    public void printAuthors() {
+        if(this.authors == null){
+            System.out.println("Library is empty");
+        }
+        System.out.println("List Of All Authors: ");
+        for (Author author : authors) {
+            System.out.println("Author Name: " + author.getName());
+            System.out.println("Author Address: " + author.getDateOfBirth());
+            author.getWrittenItems().forEach(System.out::println);
+
+            System.out.println("----------------");
+        }
+
     }
 // METHOD TO GET LIBRARY ITEM BY ID AND EDIT
     public LibraryItem getLibraryItemById(String itemId) {
@@ -110,5 +142,14 @@ public class Library {
             }
 }
         return null;
-    }    
+    }
+
+    public void checkAuthorList(String authorName,LibraryItem libraryItem) {
+        for (Author author : authors) {
+            if (author.getName().equals(authorName)) {
+                author.addToWrittenItems(libraryItem);
+
+            }
+        }
+    }
 }
