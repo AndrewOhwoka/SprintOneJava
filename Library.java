@@ -59,20 +59,21 @@ public class Library {
     public void addAuthor(Author author) {
         authors.add(author);
     }
-   // Method to edit an author
-    public void editAuthor(String Name, Author newAuthor) {
-        for (Author author : authors) {
-            if (author.getName().equals(Name)) {
-                author.setName(newAuthor.getName());
-                author.setDateOfBirth(newAuthor.getDateOfBirth());
-                author.setWrittenItems(newAuthor.getWrittenItems());
-                break;
-            }
+// Method to edit an author
+public boolean editAuthor(String name, String newDateOfBirth) {
+    for (Author author : authors) {
+        if (author.getName().equals(name)) {
+            // Assuming setName and setDateOfBirth methods exist in the Author class
+            author.setDateOfBirth(newDateOfBirth);
+            // No need to create a new Author instance just to update fields
+            return true; // Return true to indicate the author was found and updated
         }
     }
+    return false; // Return false if no author with the given name was found
+}
     // Method to delete an author
-    public void deleteAuthor(String Name) {
-        authors.removeIf(author -> author.getName().equals(Name));
+    public boolean deleteAuthor(String Name) {
+        return authors.removeIf(author -> author.getName().equals(Name));
     }   
 
     
@@ -81,7 +82,7 @@ public class Library {
         patrons.add(patron);
     }
     // Method to edit a patron
-    public void editPatron(String name, Patron newPatron) {
+    public boolean editPatron(String name, Patron newPatron) {
         for (Patron patron : patrons) {
             if (patron.getName().equals(name)) {
                 patron.setName(newPatron.getName());
@@ -91,10 +92,11 @@ public class Library {
                 break;
             }
         }
+        return false;
     }
     // Method to delete a patron
-    public void deletePatron(String name) {
-        patrons.removeIf(patron -> patron.getName().equals(name));
+    public boolean deletePatron(String name) {
+        return patrons.removeIf(patron -> patron.getName().equals(name));
     }
 
     public void printitems() {
@@ -152,4 +154,10 @@ public class Library {
             }
         }
     }
-}
+
+    
+    }
+
+   
+
+
