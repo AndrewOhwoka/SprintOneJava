@@ -1,4 +1,3 @@
-
 // Library.java
 import java.util.ArrayList;
 import java.util.List;
@@ -59,17 +58,15 @@ public class Library {
     public void addAuthor(Author author) {
         authors.add(author);
     }
-// Method to edit an author
-public boolean editAuthor(String name, String newDateOfBirth) {
-    for (Author author : authors) {
-        if (author.getName().equals(name)) {
-            // Assuming setName and setDateOfBirth methods exist in the Author class
-            author.setDateOfBirth(newDateOfBirth);
-            // No need to create a new Author instance just to update fields
-            return true; // Return true to indicate the author was found and updated
-        }
+    // Method to edit an author
+    public boolean editAuthor(String name, String newDateOfBirth) {
+        for (Author author : authors) {
+            if (author.getName().equals(name)) {
+                author.setDateOfBirth(newDateOfBirth);
+                return true; 
+            }
     }
-    return false; // Return false if no author with the given name was found
+    return false; 
 }
     // Method to delete an author
     public boolean deleteAuthor(String Name) {
@@ -81,18 +78,18 @@ public boolean editAuthor(String name, String newDateOfBirth) {
     public void addPatron(Patron patron) {
         patrons.add(patron);
     }
-    // Method to edit a patron
-    public boolean editPatron(String name, Patron newPatron) {
+    // // Method to edit a patron
+   
+    public boolean editPatron( String patronNameEdit, String editPatronName, String editPatronAddress, String editPatronPhoneNumber) {
         for (Patron patron : patrons) {
-            if (patron.getName().equals(name)) {
-                patron.setName(newPatron.getName());
-                patron.setAddress(newPatron.getAddress());
-                patron.setPhoneNumber(newPatron.getPhoneNumber());
-                patron.setBorrowedItems(newPatron.getBorrowedItems());
-                break;
+            if ( patron.getName().equals(patronNameEdit)) {
+                patron.setName(editPatronName);
+                patron.setAddress(editPatronAddress);
+                patron.setPhoneNumber(editPatronPhoneNumber);
+                return true;
             }
         }
-        return false;
+        return false; // Return false if no patron with the given name is found.
     }
     // Method to delete a patron
     public boolean deletePatron(String name) {
@@ -154,7 +151,6 @@ public boolean editAuthor(String name, String newDateOfBirth) {
             }
         }
     }
-
     
     }
 

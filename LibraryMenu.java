@@ -15,18 +15,14 @@ public class LibraryMenu {
             System.out.println("3. Delete Library Item");
             System.out.println("4. Borrow Library Item");
             System.out.println("5. Return Library Item");
-            //add new authors, edit existing authors, and delete authors from the library. 
             System.out.println("6. Add Author");
             System.out.println("7. Edit Author");
             System.out.println("8. Delete Author");
-            //add new patrons, edit existing patrons, and delete patrons from the library.
             System.out.println("9. Add Patron");
             System.out.println("10. Edit Patron");
             System.out.println("11. Delete Patron");
-
             System.out.println("12. Exit");
             System.out.println("13. Print Everything!");
-
             System.out.print("Enter your choice (1-12): ");
             choice = scanner.nextInt();
 
@@ -47,10 +43,7 @@ public class LibraryMenu {
                     int libraryItemNumberOfCopies = scanner.nextInt();
                     LibraryItem libraryItem = new LibraryItem(libraryItemId,libraryItemTitle,libraryItemAuthor,libraryItemIsbn,libraryItemPublisher,libraryItemNumberOfCopies,Status.AVAILABLE);
                     library.addLibraryItem(libraryItem);
-
-                    // Take Author Name and do a check then add the item to their list of items written.
                     library.checkAuthorList(libraryItemAuthor,libraryItem);
-
                     library.printitems();
                     break;
                 case 2:
@@ -185,18 +178,6 @@ public class LibraryMenu {
                         System.out.println("No author found with the Name.");
                     }
                     break;
-
-                    // System.out.println("Deleting an author...");
-                    // System.out.print("Enter the name of the author to delete: ");
-                    // String deleteAuthorName = scanner.next();
-                    // boolean isAuthorDeleted = library.deleteAuthor(deleteAuthorName);
-                    // if (isAuthorDeleted) {
-                    // System.out.println("Author deleted successfully.");
-                    // library.printAuthors();
-                    // } else {
-                    // System.out.println("No author found with the provided name.");
-                    // }
-
                 case 9:
                     // Add a patron
                     System.out.println("Enter Patron Name: ");
@@ -213,22 +194,21 @@ public class LibraryMenu {
                     break;
                 case 10:
                     // Edit a patron// Edit a patron
+                    System.out.println("Editing a patron...");
                     System.out.println("Enter Name of the patron to edit: ");
-                    String patronIdOrNameEdit = scanner.next();
+                    String patronNameEdit = scanner.nextLine(); 
                     System.out.println("Edit Patron Name: ");
-                    String editPatronName = scanner.next();
+                    String editPatronName = scanner.nextLine(); 
                     System.out.println("Edit Patron address: ");
-                    String editPatronAddress = scanner.next();
+                    String editPatronAddress = scanner.nextLine(); 
                     System.out.println("Edit Patron phone number: ");
-                    String editPatronPhoneNumber = scanner.next();
-                    System.out.print("Enter Patron Name: ");
-                    Patron editedPatron = new Patron(editPatronName, editPatronAddress, editPatronPhoneNumber);
-                    boolean isUpdated = library.editPatron(patronIdOrNameEdit, editedPatron);
+                    String editPatronPhoneNumber = scanner.nextLine(); 
+                    boolean isUpdated = library.editPatron(patronNameEdit, editPatronName, editPatronAddress, editPatronPhoneNumber); 
                     if (isUpdated) {
                         System.out.println("Patron details updated successfully.");
                         library.printPatrons();
                     } else {
-                        System.out.println("No patron found with the6 Name.");
+                        System.out.println("No patron found with the Name.");
                     }
                     break;
                 case 11:
